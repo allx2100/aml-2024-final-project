@@ -1,0 +1,9 @@
+*__pycache__*
+data/cifar-10-batches-py
+data/MNIST
+data/cifar_training.pkl
+aml-final/
+*.pkl
+*.pickle
+aml_2024_final_project.egg-info/
+saved_models/
