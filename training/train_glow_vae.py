@@ -1,10 +1,10 @@
 import torch
 import dill
-from models.diag_conv_vae import DiagConvVAE
+from models.glow_conv_vae import GlowConvVAE
 from data.utils import *
 from training.utils import *
 
-with open("data/cifar_grayscale_dataloaders.pkl", "rb") as f:
+with open("data/cifar_image_dataloaders.pkl", "rb") as f:
     data_loaders = dill.load(f)
 
 train_loader = data_loaders["train"]
@@ -18,7 +18,7 @@ device = (
 )
 print(f"Using {device} device")
 
-model = DiagConvVAE(3, 32, 10, kld_weight=1e-2)
+model = GlowConvVAE(3, 32, 20, kld_weight=1e-2, num_flows=3)
 loss_fn = model.loss_function
 optimizer = torch.optim.Adam(model.parameters(), lr=3e-5)
 
@@ -39,4 +39,4 @@ for i in range(300):
         f"\t{val_loss[-1]:>7f}",
     )
     if (i + 1) % 20 == 0:
-        save_data(model, f"saved_models/diag_{i+1}.pkl")
+        save_data(model, f"saved_models/glow_{i+1}.pkl")

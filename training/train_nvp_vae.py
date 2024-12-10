@@ -1,6 +1,6 @@
 import torch
 import dill
-from models.diag_conv_vae import DiagConvVAE
+from models.nvp_conv_vae import NVPConvVAE
 from data.utils import *
 from training.utils import *
 
@@ -18,7 +18,7 @@ device = (
 )
 print(f"Using {device} device")
 
-model = DiagConvVAE(3, 32, 10, kld_weight=1e-2)
+model = NVPConvVAE(3, 32, 10, kld_weight=1e-2, num_flows=5)
 loss_fn = model.loss_function
 optimizer = torch.optim.Adam(model.parameters(), lr=3e-5)
 
@@ -39,4 +39,4 @@ for i in range(300):
         f"\t{val_loss[-1]:>7f}",
     )
     if (i + 1) % 20 == 0:
-        save_data(model, f"saved_models/diag_{i+1}.pkl")
+        save_data(model, f"saved_models/nvp_{i+1}.pkl")

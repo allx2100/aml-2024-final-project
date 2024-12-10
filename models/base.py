@@ -1,22 +1,15 @@
-from typing import List, Any
 from torch import nn
 from abc import abstractmethod
 
+
 class BaseVAE(nn.Module):
-    
-    def __init__(self) -> None:
+    def __init__(self):
         super(BaseVAE, self).__init__()
 
     def encode(self):
         raise NotImplementedError
 
-    def decode(self) -> Any:
-        raise NotImplementedError
-
-    def sample(self, batch_size:int, current_device: int, **kwargs):
-        raise NotImplementedError
-
-    def generate(self, x, **kwargs):
+    def decode(self):
         raise NotImplementedError
 
     @abstractmethod
@@ -24,5 +17,5 @@ class BaseVAE(nn.Module):
         pass
 
     @abstractmethod
-    def loss_function(self, *inputs: Any, **kwargs):
+    def loss_function(self, *inputs, **kwargs):
         pass

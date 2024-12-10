@@ -2,8 +2,11 @@
 data/cifar-10-batches-py
 data/MNIST
 data/cifar_training.pkl
+data/cifar_image_dataloaders.pkl
+data/cifar_grayscale_dataloaders.pkl
+data/mnist_images.pkl
 aml-final/
-*.pkl
-*.pickle
+saved_models/
 aml_2024_final_project.egg-info/
 saved_models/
+.DS_Store
