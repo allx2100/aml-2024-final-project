@@ -10,7 +10,7 @@ Alexander Lin & Allan Zhang
 ## Data Acquisition
 ### CIFAR-10
 1. Run ```wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz``` in the ```data``` directory and untar the downloaded file.
-2. Execute the ```data/assemble_sets.py``` script followed by ```data/assemble_dataloaders.py``` to create the PyTorch DataLoaders necessary for model training and testing.
+2. Execute ```data/join_data.py```,```data/assemble_sets.py``` and then ```data/assemble_dataloaders.py``` to create the PyTorch DataLoaders necessary for model training and testing.
 
 ### MNIST
 1. Download MNIST data from ```https://drive.google.com/file/d/11ZiNnV3YtpZ7d9afHZg0rtDRrmhha-1E/view``` into the ```data``` directory.
